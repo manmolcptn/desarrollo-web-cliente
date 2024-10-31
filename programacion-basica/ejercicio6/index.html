@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<script>
+		let numero = 0;
+		do {
+			numero = Number(prompt("Introduce un número positivo mayor a 0: "));
+		} while (numero <= 0);
+
+		let suma = 0;
+		for (let i = 0; i <= numero; i++) {
+			if (numero % i === 0) {
+				suma += (i*i);
+			}
+		}
+		console.log(suma);
+		Math.sqrt(suma) % 2 === 0 ? console.log("es un cuadrado") : console.log("no es un cuadrado");
+
+
+
+
+	</script>
+</head>
+
+<body>
+
+</body>
+
+</html>
