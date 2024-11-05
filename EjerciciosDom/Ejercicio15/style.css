@@ -1,6 +1,11 @@
 body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+.body__list{
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
 .submenu__item{
     display: none;
 }
