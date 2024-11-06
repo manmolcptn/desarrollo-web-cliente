@@ -7,7 +7,7 @@ const COLORS = [
 
 let tds = document.getElementsByTagName("td");
 
-function changeColor( COLORS) {
+function changeColor(COLORS) {
 	let i = 0;
 	for (td of tds) {
 		td.onclick = function() {

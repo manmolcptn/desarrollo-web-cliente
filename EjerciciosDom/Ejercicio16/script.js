@@ -5,43 +5,40 @@ let loadButton = document.querySelector("input[value=load]");
 
 downloadButton.onclick=function(){
 	//Mi funcion
-	timer = setInterval(function(){
-		let downloadBar = document.querySelector("meter");
-		downloadBar.value+=1;
-		downloadBar.value < downloadBar.max ? downloadButton.disabled = true : downloadButton.disabled = false;
-		
-		if (downloadBar.value >= downloadBar.max){
-			downloadBar.value = downloadBar.min;
-			clearInterval(timer);
-		} 
-		
-	}, 300);
-	//Funcion Estela
-	// timer = setInterval(function(){
-	// 	let downloadBar = document.querySelector("meter");
-	// 	if (downloadBar.value != downloadBar.max){
-	// 		downloadBar.value += 1;
-	// 	}else{
-	// 		downloadBar.value=downloadBar.min;
-	// 		clearInterval(timer);
-	// 	}
-	// }, 300)
-
 	this.disabled = true;
+
+	timer = setInterval(function(){
+
+		let downloadBar = document.querySelector("meter");
+		let value = parseInt(downloadBar.value);
+		value++;
+		
+		if (value > parseInt(downloadBar.max)){
+			value = parseInt(downloadBar.min);
+			clearInterval(timer);
+			downloadButton.disabled=false;
+		} 
+		downloadBar.value = value;
+	}, 300);
+	
 }
 
 loadButton.onclick=function(){
+
+	this.disabled=true;
 	
 	timer = setInterval(function(){
+		
 		let loadBar = document.querySelector("progress");
-		
-		loadBar.value < loadBar.max ? loadButton.disabled = true : loadButton.disabled = false;
-		
-		if (loadBar.value >= loadBar.max){
-			loadBar.value = loadBar.min;
+		let value = parseInt(loadBar.value);
+		value++;	
+		//Cuidado con valores máximos y mínimos. La barra de progreso no tiene valor mínimo
+		//pero la de meter si
+		if (value > parseInt(loadBar.max)){
+			value = 0;
 			clearInterval(timer);
-		} else{
-			loadBar.value+=1;
+			loadButton.disabled=false;
 		}
+		loadBar.value=value;
 	}, 300);
 }

@@ -22,7 +22,6 @@ playButton.onclick = function () {
 				clearInterval(timer);
 				resetButton.disabled = false;
 			}
-			
 		}
 	}, 100);
 }
